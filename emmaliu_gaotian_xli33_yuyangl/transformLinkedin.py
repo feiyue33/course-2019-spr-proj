@@ -78,39 +78,48 @@ class transformLinkedin(dml.Algorithm):
         return {"start": startTime, "end": endTime}
 
     @staticmethod
-    def provenance(doc=prov.model.ProvDocument(), startTime=None, endTime=None):
+        def provenance(doc=prov.model.ProvDocument(), startTime=None, endTime=None):
         '''
             Create the provenance document describing everything happening
             in this script. Each run of the script will generate a new
             document describing that invocation event.
             '''
 
+
         # Set up the database connection.
         client = dml.pymongo.MongoClient()
         repo = client.repo
+
         repo.authenticate('emmaliu_gaotian_xli33_yuyangl', 'emmaliu_gaotian_xli33_yuyangl')
         doc.add_namespace('alg', 'http://datamechanics.io/algorithm/emmaliu_gaotian_xli33_yuyangl')  # The scripts are in <folder>#<filename> format.
         doc.add_namespace('dat', 'http://datamechanics.io/data/emmaliu_gaotian_xli33_yuyangl')  # The data sets are in <user>#<collection> format.
         doc.add_namespace('ont', 'http://datamechanics.io/ontology#')  # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
         doc.add_namespace('log', 'http://datamechanics.io/log/')  # The event log.
         doc.add_namespace('bdp', '')
-        this_script = doc.agent('alg:emmaliu_gaotian_xli33_yuyangl#transformLinkedin',
+
+
+        this_script = doc.agent('alg:emmaliu_gaotian_xli33_yuyangl#getLinkedin',
                                 {prov.model.PROV_TYPE: prov.model.PROV['SoftwareAgent'], 'ont:Extension': 'py'})
-        resource = doc.entity('dat:emmaliu_gaotian_xli33_yuyangl#linkedin',
+        resource = doc.entity('bdp:linkedinapi',
                               {'prov:label': '311, Service Requests', prov.model.PROV_TYPE: 'ont:DataResource',
                                'ont:Extension': 'json'})
-        transform_linkedin = doc.activity('log:uuid' + str(uuid.uuid4()), startTime, endTime)
-        doc.wasAssociatedWith(transform_linkedin, this_script)
-        doc.usage(transform_linkedin, resource, startTime, None,
-                  {prov.model.PROV_TYPE: 'ont:calculation',
-                   'ont:Query': ''
-                   }
+
+
+
+        get_Linkedin = doc.activity('log:uuid' + str(uuid.uuid4()), startTime, endTime)
+        doc.wasAssociatedWith(get_Linkedin, this_script)
+        doc.usage(get_Linkedin, resource, startTime, None,
+                  {prov.model.PROV_TYPE: 'ont:Retrieval',
+                   'ont:Query': '?type=Animal+Found&$select=type,latitude,longitude,OPEN_DT'
+                    }
                   )
-        userLocation = doc.entity('dat:emmaliu_gaotian_xli33_yuyangl#get_linkedin',
-                                  {prov.model.PROV_LABEL: 'linkedin from Amman', prov.model.PROV_TYPE: 'ont:DataSet'})
-        doc.wasAttributedTo(userLocation, this_script)
-        doc.wasGeneratedBy(userLocation, transform_linkedin, endTime)
-        doc.wasDerivedFrom(userLocation, resource, transform_linkedin, transform_linkedin, transform_tweets)
+
+
+        Linkedin = doc.entity('dat:emmaliu_gaotian_xli33_yuyangl#get_linkedin',
+                          {prov.model.PROV_LABEL: 'linkedin', prov.model.PROV_TYPE: 'ont:DataSet'})
+        doc.wasAttributedTo(linkedin, this_script)
+        doc.wasGeneratedBy(linkedin, get_Linkedin, endTime)
+        doc.wasDerivedFrom(linkedin, resource, get_Linkedin, get_Linkedin, get_Linkedin)
 
         repo.logout()
 
