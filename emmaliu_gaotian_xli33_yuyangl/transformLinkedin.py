@@ -31,11 +31,12 @@ class transformLinkedin(dml.Algorithm):
         repo['emmaliu_gaotian_xli33_yuyangl.linkedin'].metadata({'complete': True})
         print(repo['emmaliu_gaotian_xli33_yuyangl.linkedin'].metadata())
 
-        # Get Tweets data
+        # Get linkedin data 
         linkedinData = repo.emmaliu_gaotian_xli33_yuyangl.linkedin.find()
-        jobs = []
-        num_change=0
-        # Filter for user's location, project key value pairs.
+        jobs = {}
+        data=[]
+        #num_change=0
+       
         for data in linkedinData:
             if data['query'] == "amman":
                 name = data['name']
@@ -45,15 +46,17 @@ class transformLinkedin(dml.Algorithm):
                 if data['currentJob'] != null:
                     jobchange = True
 
-                names[name] = {'jobchange':jobchange}
+                jobs[name] = {'jobchange':jobchange}
         
-        for name in names:
+        for name in jobs:
             if data['jobchange']:
-                names[name] = {'job':currentJob}
+                jobs[name] = {'job':currentJob}
             else:
-                names[name] = {'job':job}
+                jobs[name] = {'job':job}
 
-
+        for key,value in jobs.items():
+            data.append({'name':key,'job':value['job']})
+            
 
         #with open("userLocation .json", 'w') as outfile:
          #   json.dump(dataStored, outfile, indent=4)
@@ -62,7 +65,7 @@ class transformLinkedin(dml.Algorithm):
         repo.dropCollection("userLocation")
         repo.createCollection("userLocation")
 
-        for i in dataStored:
+        for i in data:
             # print(i)
             repo['emmaliu_gaotian_xli33_yuyangl.userLocation'].insert(i)
         repo['emmaliu_gaotian_xli33_yuyangl.userLocation'].metadata({'complete': True})
