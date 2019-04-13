@@ -47,48 +47,65 @@ class translateTweets(dml.Algorithm):
         repo = client.repo
         repo.authenticate('emmaliu_gaotian_xli33_yuyangl', 'emmaliu_gaotian_xli33_yuyangl')
 
-        # Get Tweets data without objectId
-        tweetsData = repo.emmaliu_gaotian_xli33_yuyangl.tweets.find({}, {'_id': False}, no_cursor_timeout=True).batch_size(30)
-        dataTranslated = []
+        # To run the code in trial mode, we only get the twitter data that already translated by us. Because
+        # if you want to run the code without the trial mode, you have to apply a Google account and pay some money
+        # to use Google translate API and spend about 2 hours to run the entire code.
+        if trial:
+            url = 'http://datamechanics.io/data/tweets_translated.json'
+            response = urllib.request.urlopen(url).read().decode("utf-8")
+            r = json.loads(response)
+            s = json.dumps(r, sort_keys=True, indent=2)
+            repo.dropCollection("tweets_translated")
+            repo.createCollection("tweets_translated")
+            repo['emmaliu_gaotian_xli33_yuyangl.tweets_translated'].insert_many(r)
+            repo['emmaliu_gaotian_xli33_yuyangl.tweets_translated'].metadata({'complete': True})
+            print(repo['emmaliu_gaotian_xli33_yuyangl.tweets_translated'].metadata())
+            repo.logout()
 
-        # translate text and user's location to English
-        translate_client = translate.Client()
-        i = 0
-        for item in tweetsData:
-            # print(item['user']['location'])
-            # print(translator.translate(remove_emoji(item['user']['location'])).text)
-            try:
-                if item['user']['location']:
-                    item['user']['location'] = translate_client.translate(remove_emoji(item['user']['location']),
-                                                                          target_language='en')['translatedText']
-                if item['text']:
-                    item['text'] = translate_client.translate(remove_emoji(item['text']), target_language='en')['translatedText']
-            except:
-                break
-            i += 1
-            print(i)
-            dataTranslated.append(item)
-            sleep = random.choice([.4, .45, .5, .55, .6, .65, .7])
-            time.sleep(sleep)
-            # if i >= 10:
-            #     break
+        # run the code in non-trial mode. Use Google API to translate the tweets
+        else:
+            # Get Tweets data without objectId
+            tweetsData = repo.emmaliu_gaotian_xli33_yuyangl.tweets.find({}, {'_id': False}, no_cursor_timeout=True).batch_size(30)
+            dataTranslated = []
 
-        tweetsData.close()
+            # translate text and user's location to English
+            translate_client = translate.Client()
+            i = 0
+            for item in tweetsData:
+                # print(item['user']['location'])
+                # print(translator.translate(remove_emoji(item['user']['location'])).text)
+                try:
+                    if item['user']['location']:
+                        item['user']['location'] = translate_client.translate(remove_emoji(item['user']['location']),
+                                                                              target_language='en')['translatedText']
+                    if item['text']:
+                        item['text'] = translate_client.translate(remove_emoji(item['text']), target_language='en')['translatedText']
+                except:
+                    break
+                i += 1
+                print(i)
+                dataTranslated.append(item)
+                sleep = random.choice([.4, .45, .5, .55, .6, .65, .7])
+                time.sleep(sleep)
+                # if i >= 10:
+                #     break
 
-        with open("tweets_translated .json", 'w') as outfile:
-             json.dump(dataTranslated, outfile, indent=4)
+            tweetsData.close()
 
-        # store results into database
-        repo.dropCollection("tweets_translated")
-        repo.createCollection("tweets_translated")
+            with open("tweets_translated.json", 'w') as outfile:
+                 json.dump(dataTranslated, outfile, indent=4)
 
-        for i in dataTranslated:
-            # print(i)
-            repo['emmaliu_gaotian_xli33_yuyangl.tweets_translated'].insert(i)
-        repo['emmaliu_gaotian_xli33_yuyangl.tweets_translated'].metadata({'complete': True})
-        print(repo['emmaliu_gaotian_xli33_yuyangl.tweets_translated'].metadata())
+            # store results into database
+            repo.dropCollection("tweets_translated")
+            repo.createCollection("tweets_translated")
 
-        repo.logout()
+            for i in dataTranslated:
+                # print(i)
+                repo['emmaliu_gaotian_xli33_yuyangl.tweets_translated'].insert(i)
+            repo['emmaliu_gaotian_xli33_yuyangl.tweets_translated'].metadata({'complete': True})
+            print(repo['emmaliu_gaotian_xli33_yuyangl.tweets_translated'].metadata())
+
+            repo.logout()
 
         endTime = datetime.datetime.now()
 
@@ -134,8 +151,8 @@ class translateTweets(dml.Algorithm):
         return doc
 
 
-translateTweets.execute()
-# doc = getTweets.provenance()
+translateTweets.execute(True)
+# doc = translateTweets.provenance()
 # print(doc.get_provn())
 # print(json.dumps(json.loads(doc.serialize()), indent=4))
 
