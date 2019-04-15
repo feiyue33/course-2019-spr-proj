@@ -151,7 +151,7 @@ class translateTweets(dml.Algorithm):
         return doc
 
 
-translateTweets.execute(True)
+# translateTweets.execute(True)
 # doc = translateTweets.provenance()
 # print(doc.get_provn())
 # print(json.dumps(json.loads(doc.serialize()), indent=4))

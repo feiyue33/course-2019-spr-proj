@@ -8,7 +8,7 @@ import uuid
 
 class transformTweets(dml.Algorithm):
     contributor = 'gaotian_xli33'
-    reads = ['emmaliu_gaotian_xli33_yuyangl.tweets_translated']
+    reads = ['emmaliu_gaotian_xli33_yuyangl.tweets']
     writes = ['emmaliu_gaotian_xli33_yuyangl.userLocation']
 
     @staticmethod
