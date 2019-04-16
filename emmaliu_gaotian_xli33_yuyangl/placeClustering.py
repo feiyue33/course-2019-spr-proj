@@ -196,14 +196,14 @@ class placeClustering(dml.Algorithm):
         doc.add_namespace('ont', 'http://datamechanics.io/ontology#')  # 'Extension', 'DataResource', 'DataSet', 'Retrieval', 'Query', or 'Computation'.
         doc.add_namespace('log', 'http://datamechanics.io/log/')  # The event log.
         doc.add_namespace('bdp', '')
-        this_script = doc.agent('alg:emmaliu_gaotian_xli33_yuyangl#sentimentAnalysis',
+        this_script = doc.agent('alg:emmaliu_gaotian_xli33_yuyangl#placeClustering',
                                 {prov.model.PROV_TYPE: prov.model.PROV['SoftwareAgent'], 'ont:Extension': 'py'})
-        resource = doc.entity('dat:emmaliu_gaotian_xli33_yuyangl#tweets_translated',
+        resource = doc.entity('dat:emmaliu_gaotian_xli33_yuyangl#tweets',
                               {'prov:label': '311, Service Requests', prov.model.PROV_TYPE: 'ont:DataResource',
                                'ont:Extension': 'json'})
-        sentiment_analysis = doc.activity('log:uuid' + str(uuid.uuid4()), startTime, endTime)
-        doc.wasAssociatedWith(sentiment_analysis, this_script)
-        doc.usage(sentiment_analysis, resource, startTime, None,
+        place_clustering = doc.activity('log:uuid' + str(uuid.uuid4()), startTime, endTime)
+        doc.wasAssociatedWith(place_clustering, this_script)
+        doc.usage(place_clustering, resource, startTime, None,
                   {prov.model.PROV_TYPE: 'ont:calculation',
                    'ont:Query': ''
                    }
