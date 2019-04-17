@@ -25,11 +25,11 @@ Following the two topics mentioned above, out first step is getting data since w
 
 - **Twitter**
 
-  At first, we want to use [Twitter API](https://developer.twitter.com/content/developer-twitter/en.html) to get users who live in Amman and then get their tweets. However, the API do not provide this fuction and we cannot directly get all the users with location "Amman" in their profile. Hence, we decide to get tweets with location "Amman". We set the coordinates of the center of Amman and the radius to specify the range and get the tweets in that area. We get 5,000 tweets, store all the information as a [JSON](https://www.json.org/) file and upload it to [the course website](http://datamechanics.io/data/tweets_amman.json). **Due to the execute.py will run all Python file in subdirectory, we upload the source code for getting tweets in crawlTweets.pdf.**
+At first, we want to use [Twitter API](https://developer.twitter.com/content/developer-twitter/en.html) to get users who live in Amman and then get their tweets. However, the API do not provide this fuction and we cannot directly get all the users with location "Amman" in their profile. Hence, we decide to get tweets with location "Amman". We set the coordinates of the center of Amman and the radius to specify the range and get the tweets in that area. We get 5,000 tweets, store all the information as a [JSON](https://www.json.org/) file and upload it to [the course website](http://datamechanics.io/data/tweets_amman.json). **Due to the execute.py will run all Python file in subdirectory, we upload the source code for getting tweets in crawlTweets.pdf.**
 
 - **LinkedIn**
 
-  According to the project topic, we mainly focus on people who are from Amman (Jordan) and their education as well as job. We use an API called [Linkedin Search
+According to the project topic, we mainly focus on people who are from Amman (Jordan) and their education as well as job. We use an API called [Linkedin Search
 Export](https://phantombuster.com/api-store/3149/linkedin-search-export) to run through people’s profiles on Linkedin. We only get around 150 sets of data and upload it to [the course website](http://datamechanics.io/data/linkedindataset.json) as well. The limitaion will be discussed later.
 
 ### 2. Data Transformation
@@ -49,44 +49,46 @@ Export](https://phantombuster.com/api-store/3149/linkedin-search-export) to run 
 ### 3. Analysis and Discussion
 - **Analysis for Twitter**
 
-  The data set we get includes some useful information, such as the location of the users. By analyzing that, we find that there are basically two types of people: native and tourists and there are some difference in their number of followers and friends. About 60% of them are tourists. But there are still some people who do not specify their location in their profile. Also, some texts are in Arabic, so we maybe need to translate them into English later.
+The data set we get includes some useful information, such as the location of the users. By analyzing that, we find that there are basically two types of people: native and tourists and there are some difference in their number of followers and friends. About 60% of them are tourists. But there are still some people who do not specify their location in their profile. Also, some texts are in Arabic, so we maybe need to translate them into English later.
 
 - **Analysis for LinkedIn**
 
-  We find that there are only a few people who come from Amman in our LinkedIn data set. There are some limitaions related to LinkedIn itself. First, Linkedin only allows up to three degrees of friend relationship to see other people’s profile. As we are both from China and currently studying in US, we do not have lots of friends or know anyone who is from Jordan. Therefore, we do not have deep exposure to view these profiles of people who are from Amman. Second, we can only scrape up to 100 profiles once without premium membership, which would limit our dataset size. Third, some people do not post their educational backgrounds on their Linkedin profiles. It is understandable in some sense that these people probably are not students or recent graduates. Lastly, when we tried to use Amman as query to scrape, some locations in these people’s profiles are neither Jordan or Amman, which is not related to the main purpose of the project. According to http://gs.statcounter.com/social-media-stats/all/jordan, LinkedIn is not a popular social media in Jordan. Therefore, the final results we get is reasonable.
+We find that there are only a few people who come from Amman in our LinkedIn data set. There are some limitaions related to LinkedIn itself. First, Linkedin only allows up to three degrees of friend relationship to see other people’s profile. As we are both from China and currently studying in US, we do not have lots of friends or know anyone who is from Jordan. Therefore, we do not have deep exposure to view these profiles of people who are from Amman. Second, we can only scrape up to 100 profiles once without premium membership, which would limit our dataset size. Third, some people do not post their educational backgrounds on their Linkedin profiles. It is understandable in some sense that these people probably are not students or recent graduates. Lastly, when we tried to use Amman as query to scrape, some locations in these people’s profiles are neither Jordan or Amman, which is not related to the main purpose of the project. According to http://gs.statcounter.com/social-media-stats/all/jordan, LinkedIn is not a popular social media in Jordan. Therefore, the final results we get is reasonable.
 
 - **Discussion with project partner**
 
-  Based on analysis above, we have a meeting with our project partner on March 7, 2019. We make on agreement that we do not use Linkedin as a sources since there are too many problems in the data set. We will focus on Twitter for our project. Our next goal is to split users who send tweets in Amman into three groups: native, tourist and unknown and try to find more information for each group. If the results is good, we will get more tweets and do sentimental analysis for those tweets.
+Based on analysis above, we have a meeting with our project partner on March 7, 2019. We make on agreement that we do not use Linkedin as a sources since there are too many problems in the data set. We will focus on Twitter for our project. Our next goal is to split users who send tweets in Amman into three groups: native, tourist and unknown and try to find more information for each group. If the results is good, we will get more tweets and do sentimental analysis for those tweets.
   
   
-  ## Project #2
- According to course syllabus, we focus on problems about data analytics in Project #2.
+
+## Project #
+
+According to course syllabus, we focus on problems about data analytics in Project #2.
  
  - Clustering on the place information including in tweets.
  - Sentimental analysis on the text of tweets.
   
-  ## Our Works for Project #2
+## Our Works for Project #2
 
- ### 1. Filtering Geo Information
- In order to do clustering on the place infomation, first we need to find which tweets include the place information. According to our observation, there are two information that might be useful. The first one is the "place" with a bounding box which provides coordinates. For each bounding box, we calculate the center point to represent it. The second one is the "geo" which directly provides coordinates. According our observation, there are too many overlapping center points calculated from bounding boxes, so this attribute do not provide enough useful information. Therefore, we filter tweets with "geo".
+### 1. Filtering Geo Information
+In order to do clustering on the place infomation, first we need to find which tweets include the place information. According to our observation, there are two information that might be useful. The first one is the "place" with a bounding box which provides coordinates. For each bounding box, we calculate the center point to represent it. The second one is the "geo" which directly provides coordinates. According our observation, there are too many overlapping center points calculated from bounding boxes, so this attribute do not provide enough useful information. Therefore, we filter tweets with "geo".
  
- ### 2. Clustering by k-means++ Algorithm
- In order to get more tweets with geo information, we get all tweets in last 7 days in Amman area. There are about 29,000 tweets in total and about 160 tweets include "geo". We use coordinates in "geo" to do clustering. The most classic clustering algorithm is k-means. In this project, we implement k-means++ to better initialize the cluster centers. When k is set to 3, we get the result as follows.
+### 2. Clustering by k-means++ Algorithm
+In order to get more tweets with geo information, we get all tweets in last 7 days in Amman area. There are about 29,000 tweets in total and about 160 tweets include "geo". We use coordinates in "geo" to do clustering. The most classic clustering algorithm is k-means. In this project, we implement k-means++ to better initialize the cluster centers. When k is set to 3, we get the result as follows.
  ![k-means result](https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/kmeans_result.jpeg)
  
- **Note: If you run the code in trial mode, only about 20 coordinates will be used in clustering.**
+**Note: If you run the code in trial mode, only about 20 coordinates will be used in clustering.**
  
- ### 3. Text Translation
- Since many tweets in data set are in Arabic, we need to translate Arabic to English because it is much more convenient and efficient to do sentimental analysis on English. We use [Google Cloud Translation API](https://cloud.google.com/translate/docs/apis) to do translation. For 5,000 tweets, it takes about more than 1 hour to translate. We upload the new translated data set to http://datamechanics.io/data/tweets_translated.json.
+### 3. Text Translation
+Since many tweets in data set are in Arabic, we need to translate Arabic to English because it is much more convenient and efficient to do sentimental analysis on English. We use [Google Cloud Translation API](https://cloud.google.com/translate/docs/apis) to do translation. For 5,000 tweets, it takes about more than 1 hour to translate. We upload the new translated data set to http://datamechanics.io/data/tweets_translated.json.
  
- **Note: The trial mode does not include text translation. Please run the code in trial mode if you do not want to do translation.**
+**Note: The trial mode does not include text translation. Please run the code in trial mode if you do not want to do translation.**
  
- ### 4. Sentimental Analysis
- After translation, we do sentimental analysis on tweets in Amman area. We randomly sample 200 tweets from translated data set. Each tweet will get a score from range [-1, 1]. The more the score close to -1, the more negative the tweet is; the more the score close to 1, the more positive the tweet is. We draw a scatter plot to show the results more intuitively.
+### 4. Sentimental Analysis
+After translation, we do sentimental analysis on tweets in Amman area. We randomly sample 200 tweets from translated data set. Each tweet will get a score from range [-1, 1]. The more the score close to -1, the more negative the tweet is; the more the score close to 1, the more positive the tweet is. We draw a scatter plot to show the results more intuitively.
  ![sentimental result](https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentiment_result.jpeg)
   
- ## Reference
+## Reference
  - https://developer.twitter.com/en/docs.html
  - https://www.json.org/
  - http://cs-people.bu.edu/lapets/504/
