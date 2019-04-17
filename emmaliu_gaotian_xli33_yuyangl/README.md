@@ -17,7 +17,7 @@ According to course syllabus, we focus on getting data sets and using them to do
 - Do some data transformation.
 - Analyze results and discuss them with the project partner.
 
-## Our Works for Project #1
+## Our Work in Project #1
 Because our project partener do not provide us with the data, so our work focused more on how to get the useful data for the project. **We have discussed this with Prof. Andrei and he understood this and reduced the requirements for transformation for our Project #1.**
 
 ### 1. Scrape Data
@@ -61,21 +61,21 @@ Based on analysis above, we have a meeting with our project partner on March 7, 
   
   
 
-## Project #
+## Project #2
 
 According to course syllabus, we focus on problems about data analytics in Project #2.
  
  - Clustering on the place information including in tweets.
  - Sentimental analysis on the text of tweets.
   
-## Our Works for Project #2
+## Our Work in Project #2
 
 ### 1. Filtering Geo Information
 In order to do clustering on the place infomation, first we need to find which tweets include the place information. According to our observation, there are two information that might be useful. The first one is the "place" with a bounding box which provides coordinates. For each bounding box, we calculate the center point to represent it. The second one is the "geo" which directly provides coordinates. According our observation, there are too many overlapping center points calculated from bounding boxes, so this attribute do not provide enough useful information. Therefore, we filter tweets with "geo".
  
 ### 2. Clustering by k-means++ Algorithm
 In order to get more tweets with geo information, we get all tweets in last 7 days in Amman area. There are about 29,000 tweets in total and about 160 tweets include "geo". We use coordinates in "geo" to do clustering. The most classic clustering algorithm is k-means. In this project, we implement k-means++ to better initialize the cluster centers. When k is set to 3, we get the result as follows.
- ![k-means result](https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/kmeans_result.jpeg)
+<img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/kmeans_result.jpeg" width="150" height="200"/>
  
 **Note: If you run the code in trial mode, only about 20 coordinates will be used in clustering.**
  
@@ -86,7 +86,7 @@ Since many tweets in data set are in Arabic, we need to translate Arabic to Engl
  
 ### 4. Sentimental Analysis
 After translation, we do sentimental analysis on tweets in Amman area. We randomly sample 200 tweets from translated data set. Each tweet will get a score from range [-1, 1]. The more the score close to -1, the more negative the tweet is; the more the score close to 1, the more positive the tweet is. We draw a scatter plot to show the results more intuitively.
- ![sentimental result](https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentiment_result.jpeg)
+<img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentiment_result.jpeg" width="150" height="200"/>
   
 ## Reference
  - https://developer.twitter.com/en/docs.html
