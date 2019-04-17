@@ -102,7 +102,7 @@ After translation, we do sentimental analysis on tweets in Amman area. We random
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentiment_result.jpeg" width="640" height="480"/></div>
 
-### 4. Compute Correlation Coefficient
+### 5. Compute Correlation Coefficient
 In this part, we use two field of user of tweet - the number of followers this user has (followers_count) and the number of public lists that this user is a member of (listed_count). During the observation and we compute the correlation coefficient and the p-value of the two field. The correlation coefficient is 0.86 and the p-value is close to 0. Therefore we can conclude that the correlation between followers_count and listed_count is very strong.
 
 ## Reference
