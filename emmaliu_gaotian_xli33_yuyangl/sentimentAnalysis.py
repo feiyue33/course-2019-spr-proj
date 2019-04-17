@@ -51,7 +51,7 @@ class sentimentAnalysis(dml.Algorithm):
         sampleNum = random.sample(range(len(compoundScore)), 200)
         for i in sampleNum:
             sample.append(compoundScore[i])
-            print(i)
+            # print(i)
 
         x = range(len(sample))
         # compoundScore.sort()
@@ -101,7 +101,7 @@ class sentimentAnalysis(dml.Algorithm):
 
         return doc
 
-sentimentAnalysis.execute()
+# sentimentAnalysis.execute()
 # doc = sentimentAnalysis.provenance()
 # print(doc.get_provn())
 # print(json.dumps(json.loads(doc.serialize()), indent=4))

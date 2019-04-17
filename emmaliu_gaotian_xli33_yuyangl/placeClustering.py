@@ -215,7 +215,7 @@ class placeClustering(dml.Algorithm):
 
 
 # placeClustering.kmeans()
-placeClustering.execute()
+# placeClustering.execute()
 # doc = placeClustering.provenance()
 # print(doc.get_provn())
 # print(json.dumps(json.loads(doc.serialize()), indent=4))
