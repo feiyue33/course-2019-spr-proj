@@ -25,11 +25,11 @@ Following the two topics mentioned above, out first step is getting data since w
 
 - **Twitter**
 
-At first, we want to use [Twitter API](https://developer.twitter.com/content/developer-twitter/en.html) to get users who live in Amman and then get their tweets. However, the API do not provide this fuction and we cannot directly get all the users with location "Amman" in their profile. Hence, we decide to get tweets with location "Amman". We set the coordinates of the center of Amman and the radius to specify the range and get the tweets in that area. We get 5,000 tweets, store all the information as a [JSON](https://www.json.org/) file and upload it to [the course website](http://datamechanics.io/data/tweets_amman.json). **Due to the execute.py will run all Python file in subdirectory, we upload the source code for getting tweets in crawlTweets.pdf.**
+  At first, we want to use [Twitter API](https://developer.twitter.com/content/developer-twitter/en.html) to get users who live in Amman and then get their tweets. However, the API do not provide this fuction and we cannot directly get all the users with location "Amman" in their profile. Hence, we decide to get tweets with location "Amman". We set the coordinates of the center of Amman and the radius to specify the range and get the tweets in that area. We get 5,000 tweets, store all the information as a [JSON](https://www.json.org/) file and upload it to [the course website](http://datamechanics.io/data/tweets_amman.json). **Due to the execute.py will run all Python file in subdirectory, we upload the source code for getting tweets in crawlTweets.pdf.**
 
 - **LinkedIn**
 
-According to the project topic, we mainly focus on people who are from Amman (Jordan) and their education as well as job. We use an API called [Linkedin Search
+  According to the project topic, we mainly focus on people who are from Amman (Jordan) and their education as well as job. We use an API called [Linkedin Search
 Export](https://phantombuster.com/api-store/3149/linkedin-search-export) to run through people’s profiles on Linkedin. We only get around 150 sets of data and upload it to [the course website](http://datamechanics.io/data/linkedindataset.json) as well. The limitaion will be discussed later.
 
 ### 2. Data Transformation
@@ -78,12 +78,12 @@ In Project #1, we get 5,000 tweets but the number of tweets with "geo" is not en
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/kmeans_result.jpeg" width="640" height=480"/></div>
  
-**Note: If you run the code in trial mode, only about 20 coordinates will be used in clustering.**
+***Note: If you run the code in trial mode, only about 20 coordinates will be used in clustering.***
  
 ### 3. Text Translation
 Since many tweets in data set are in Arabic, we need to translate Arabic to English because it is much more convenient and efficient to do sentimental analysis on English. We use [Google Cloud Translation API](https://cloud.google.com/translate/docs/apis) to do translation. For 5,000 tweets, it takes about more than 1 hour to translate. We upload the new translated data set to http://datamechanics.io/data/tweets_translated.json.
  
-**Note: The trial mode does not include text translation. Please run the code in trial mode if you do not want to do translation.**
+***Note: The trial mode does not include text translation. Please run the code in trial mode if you do not want to do translation.***
  
 ### 4. Sentimental Analysis
 After translation, we do sentimental analysis on tweets in Amman area. We randomly sample 200 tweets from translated data set. Each tweet will get a score from range [-1, 1]. The more the score close to -1, the more negative the tweet is; the more the score close to 1, the more positive the tweet is. We draw a scatter plot to show the results more intuitively.
