@@ -1,4 +1,7 @@
-# CS504 Project #1 & 2 - Mapping Amman
+# CS504 Project - Mapping Amman
+
+***README.md file has updated in Project #2. Please jump to Project #2 Part for more details.***
+
 ***This project is a part of [BU Spark!](http://www.bu.edu/spark/) project “Mapping Amman”.***
 
 ## Introduction
@@ -79,6 +82,7 @@ According to course syllabus, we focus on problems about data analytics in Proje
  
  - Clustering on the place information including in tweets.
  - Sentimental analysis on the text of tweets.
+ - Correlation analysis on attributes of user account.
   
 ## Our Work in Project #2
 
@@ -102,8 +106,8 @@ After translation, we do sentimental analysis on tweets in Amman area. We random
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentiment_result.jpeg" width="480" height="360"/></div>
 
-### 5. Compute Correlation Coefficient
-In this part, we use two field of user of tweet - the number of followers this user has (followers_count) and the number of public lists that this user is a member of (listed_count). During the observation and we compute the correlation coefficient and the p-value of the two field. The correlation coefficient is 0.86 and the p-value is close to 0. Therefore we can conclude that the correlation between followers_count and listed_count is very strong.
+### 5. Computation of Correlation Coefficient
+In this part, we use two attributes of Twitter user - the number of followers this user has (followers_count) and the number of public lists this user is a member of (listed_count). We compute the correlation coefficient and the p-value of these two attributes. According to our computation results, the correlation coefficient equals to 0.86 and the p-value is close to 0. Therefore, we can conclude that the correlation between followers_count and listed_count is very strong.
 
 ## Reference
  - https://developer.twitter.com/en/docs.html
