@@ -101,7 +101,10 @@ Since many tweets in data set are in Arabic, we need to translate Arabic to Engl
 After translation, we do sentimental analysis on tweets in Amman area. We randomly sample 200 tweets from translated data set. Each tweet will get a score from range [-1, 1]. The more the score close to -1, the more negative the tweet is; the more the score close to 1, the more positive the tweet is. We draw a scatter plot to show the results more intuitively.
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentiment_result.jpeg" width="640" height="480"/></div>
-  
+
+### 4. Compute Correlation Coefficient
+In this part, we use two field of user of tweet - the number of followers this user has (followers_count) and the number of public lists that this user is a member of (listed_count). During the observation and we compute the correlation coefficient and the p-value of the two field. The correlation coefficient is 0.86 and the p-value is close to 0. Therefore we can conclude that the correlation between followers_count and listed_count is very strong.
+
 ## Reference
  - https://developer.twitter.com/en/docs.html
  - https://www.json.org/
