@@ -1,6 +1,6 @@
 # CS504 Project - Mapping Amman
 
-***README.md file has updated in Project #2. Please jump to Project #2 Part for more details.***
+***README.md file has updated for Project #2. Please jump to Project #2 Part for more details.***
 
 ***This project is a part of [BU Spark!](http://www.bu.edu/spark/) project “Mapping Amman”.***
 
