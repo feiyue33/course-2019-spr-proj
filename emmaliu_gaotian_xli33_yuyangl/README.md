@@ -1,4 +1,4 @@
-# CS504 Project - Mapping Amman
+# CS504 Project #1 & #2 - Mapping Amman
 ***This project is a part of [BU Spark!](http://www.bu.edu/spark/) project “Mapping Amman”.***
 
 ## Introduction
