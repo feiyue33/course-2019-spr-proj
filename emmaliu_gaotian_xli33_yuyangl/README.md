@@ -75,7 +75,8 @@ In order to do clustering on the place infomation, first we need to find which t
  
 ### 2. Clustering by k-means++ Algorithm
 In order to get more tweets with geo information, we get all tweets in last 7 days in Amman area. There are about 29,000 tweets in total and about 160 tweets include "geo". We use coordinates in "geo" to do clustering. The most classic clustering algorithm is k-means. In this project, we implement k-means++ to better initialize the cluster centers. When k is set to 3, we get the result as follows.
-<img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/kmeans_result.jpeg" width="640" height=480"/>
+
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/kmeans_result.jpeg" width="640" height=480"/></div>
  
 **Note: If you run the code in trial mode, only about 20 coordinates will be used in clustering.**
  
@@ -87,7 +88,7 @@ Since many tweets in data set are in Arabic, we need to translate Arabic to Engl
 ### 4. Sentimental Analysis
 After translation, we do sentimental analysis on tweets in Amman area. We randomly sample 200 tweets from translated data set. Each tweet will get a score from range [-1, 1]. The more the score close to -1, the more negative the tweet is; the more the score close to 1, the more positive the tweet is. We draw a scatter plot to show the results more intuitively.
 
-<img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentiment_result.jpeg" width="640" height="480"/>
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentiment_result.jpeg" width="640" height="480"/></div>
   
 ## Reference
  - https://developer.twitter.com/en/docs.html
