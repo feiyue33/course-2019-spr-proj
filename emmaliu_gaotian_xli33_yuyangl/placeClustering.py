@@ -40,7 +40,7 @@ def select_init_center(k, points):
     centroids = []
     # select first center
     firstCenter = random.choice(points)
-    print(firstCenter)
+    # print(firstCenter)
     centroids.append(firstCenter)
     # select other centers
     for i in range(0, k - 1):
@@ -86,7 +86,7 @@ class placeClustering(dml.Algorithm):
             P = points
             # use K-means++ algorithm to init k points as centers
             M = select_init_center(k, P)
-            print(M)
+            # print(M)
             MP = []
             OLD = []
             map = {}
@@ -101,19 +101,19 @@ class placeClustering(dml.Algorithm):
                 M1 = [(m, 1) for (m, _) in MP]
                 MC = aggregate(M1, sum)
                 M = [scale(t, c) for ((m, t), (m2, c)) in product(MT, MC) if m == m2]
-                print(sorted(M))
+                # print(sorted(M))
 
             cluster = 0
             for m in M:
                 map[m] = cluster
                 cluster += 1
-            print(map)
+            # print(map)
 
             # assign points to cluster
             for mp in MP:
                 m, p = mp
                 result.append((p, map[m]))
-            print(result)
+            # print(result)
             return result
 
         startTime = datetime.datetime.now()
