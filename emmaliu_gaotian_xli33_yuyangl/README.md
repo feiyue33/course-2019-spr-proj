@@ -10,6 +10,18 @@ Prof.Anderson of BU history department is conducting an ethnography of present-d
 
 - Can we find a relationship between university degrees, skills, language, and English training centers, and whether or not a person in Amman has a job?
 
+## Prerequisite
+To successfully run this project, you need to install these packages:
+```sh
+$ pip install twitter
+```
+```sh
+$ pip install google-cloud-translate
+```
+```sh
+$ pip install vaderSentiment
+```
+
 ## Project #1
 According to course syllabus, we focus on getting data sets and using them to do transformation in Project #1.
 
