@@ -88,6 +88,8 @@ According to course syllabus, we focus on problems about data analytics in Proje
 
 ### 1. Filtering Geo Information
 In order to do clustering on the place infomation, first we need to find which tweets include the place information. According to our observation, there are two information that might be useful. The first one is the "place" with a bounding box which provides coordinates. For each bounding box, we calculate the center point to represent it. The second one is the "geo" which directly provides coordinates. According our observation, there are too many overlapping center points calculated from bounding boxes, so this attribute do not provide enough useful information. Therefore, we filter tweets with "geo".
+
+***Note: We do not merge code that using "bounding box" into our master branch. That part of code is in LinkedIn branch created in Project #1.***
  
 ### 2. Clustering by k-means++ Algorithm
 In Project #1, we get 5,000 tweets but the number of tweets with "geo" is not enough. To obtain more geo information for clustering, we get all tweets in last 7 days in Amman area. There are about 29,000 tweets in total and about 160 tweets include "geo". We want to use these coordinates to do clustering and find if there are some places that people usually go by solving this optimization problem. The most classic clustering algorithm is k-means. In Project #2, we implement k-means++ algorithm, which is better in initializing cluster centers. When k is set to 3, we get the result as follows.
