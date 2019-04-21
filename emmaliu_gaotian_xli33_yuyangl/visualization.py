@@ -206,7 +206,7 @@ class visualization(dml.Algorithm):
         return doc
 
 
-# visualization.execute()
+visualization.execute()
 # placeClustering.execute()
 # doc = placeClustering.provenance()
 # print(doc.get_provn())
