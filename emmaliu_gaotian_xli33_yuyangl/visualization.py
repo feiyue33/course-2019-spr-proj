@@ -59,6 +59,10 @@ class visualization(dml.Algorithm):
         # create sentiment map
         sentiment_map = folium.Map(location=[31.947, 35.925])
 
+        positiveFG = folium.FeatureGroup(name='Positive')
+        negativeFG= folium.FeatureGroup(name='Negative')
+        neutralFG = folium.FeatureGroup(name='Neutral')
+        heatmapFG = folium.FeatureGroup(name='Heat Map')
         coordinates = []
         count = 0
         for item in tweetsData:
@@ -70,26 +74,33 @@ class visualization(dml.Algorithm):
                 if vs['compound'] < 0:
                     color = 'blue'
                     icon = 'thumbs-down'
+                    featureGroup = negativeFG
                 elif vs['compound'] > 0:
                     color = 'red'
                     icon = 'thumbs-up'
+                    featureGroup = positiveFG
                 else:
                     color = 'orange'
                     icon = ''
+                    featureGroup = neutralFG
                 folium.Marker(
                     location=[item['geo']['coordinates'][0], item['geo']['coordinates'][1]],
                     popup=item['text'],
                     icon=folium.Icon(color=color, icon=icon)
-                ).add_to(sentiment_map)
+                ).add_to(featureGroup)
                 count += 1
                 print(count)
                 time.sleep(.6)
 
-        HeatMap(coordinates).add_to(heat_map)
+        HeatMap(coordinates).add_to(heatmapFG)
+        # heat_map.save('heat_map.html')
 
-        heat_map.save('heat_map.html')
+        positiveFG.add_to(sentiment_map)
+        negativeFG.add_to(sentiment_map)
+        neutralFG.add_to(sentiment_map)
+        heatmapFG.add_to(sentiment_map)
+        folium.LayerControl().add_to(sentiment_map)
         sentiment_map.save('sentiment_map.html')
-
 
         repo.logout()
 
