@@ -24,6 +24,9 @@ $ pip install google-cloud-translate
 ```sh
 $ pip install vaderSentiment
 ```
+```sh
+$ pip install folium
+```
 
 ## Project #1: Data Retrieval, Storage, Provenance, and Transformations
 According to course syllabus, we focus on getting data sets and using them to do transformation in Project #1.
@@ -112,7 +115,7 @@ After translation, we do sentimental analysis on tweets in Amman area. We random
 In this part, we use two attributes of Twitter user - the number of followers this user has (followers_count) and the number of public lists this user is a member of (listed_count). We compute the correlation coefficient and the p-value of these two attributes. According to our computation results, the correlation coefficient equals to 0.86 and the p-value is close to 0. Therefore, we can conclude that the correlation between followers_count and listed_count is very strong.
 
 ## Project #3: Visualizations, Web Services, and Complete Project
-In Project #3, we focus on visualizations for results obtained in previous project. Our aim is to create an interactive web-based visualization that can be displayed in a standard web browser. We built a web server that allows a user to explore the geo information of tweets that people posted from Amman. We also included different layers that allows people to view different attitude in different places.
+In Project #3, we focus on visualizations for results obtained in previous project. Our aim is to create an interactive web-based visualization that can be displayed in a standard web browser. We built a web server that allows a user to explore the geo information of tweets that people posted from Amman. We also created different layers that allows people to view different attitude in different places.
 
 ## Our Work in Project #3
 
