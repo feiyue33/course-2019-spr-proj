@@ -25,7 +25,7 @@ $ pip install google-cloud-translate
 $ pip install vaderSentiment
 ```
 
-## Project #1
+## Project #1: Data Retrieval, Storage, Provenance, and Transformations
 According to course syllabus, we focus on getting data sets and using them to do transformation in Project #1.
 
 - Scrape data from social media and store them in [MongoDB](https://www.mongodb.com/).
@@ -76,7 +76,7 @@ Export](https://phantombuster.com/api-store/3149/linkedin-search-export) to run 
   
   
 
-## Project #2
+## Project #2: Modeling, Optimization, and Statistical Analysis
 
 According to course syllabus, we focus on problems about data analytics in Project #2.
  
@@ -110,6 +110,23 @@ After translation, we do sentimental analysis on tweets in Amman area. We random
 
 ### 5. Computation of Correlation Coefficient
 In this part, we use two attributes of Twitter user - the number of followers this user has (followers_count) and the number of public lists this user is a member of (listed_count). We compute the correlation coefficient and the p-value of these two attributes. According to our computation results, the correlation coefficient equals to 0.86 and the p-value is close to 0. Therefore, we can conclude that the correlation between followers_count and listed_count is very strong.
+
+## Project #3: Visualizations, Web Services, and Complete Project
+In Project #3, we focus on visualizations for results obtained in previous project. Our aim is to create an interactive web-based visualization that can be displayed in a standard web browser.
+
+## Our Work in Project #3
+
+### 1. Visualization for Clustering
+
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/heatmap.gif" width="480" height="360"/></div>
+
+### 2. Visualization for Sentimental Analysis
+
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentimental_analysis.gif" width="480" height="360"/></div>
+
+### 3. Combination and Interaction
+
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/layer.gif" width="480" height="360"/></div>
 
 ## Reference
  - https://developer.twitter.com/en/docs.html
