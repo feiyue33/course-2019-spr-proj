@@ -118,15 +118,15 @@ In Project #3, we focus on visualizations for results obtained in previous proje
 
 ### 1. Visualization for Clustering
 
-<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/heatmap.gif" width="480" height="360"/></div>
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/heatmap.gif" width="640" height="318"/></div>
 
 ### 2. Visualization for Sentimental Analysis
 
-<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentimental_analysis.gif" width="480" height="360"/></div>
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentimental_analysis.gif" width="640" height="318"/></div>
 
 ### 3. Combination and Interaction
 
-<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/layer.gif" width="480" height="360"/></div>
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/layer.gif" width="640" height="318"/></div>
 
 ## Reference
  - https://developer.twitter.com/en/docs.html
