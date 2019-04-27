@@ -115,30 +115,33 @@ After translation, we do sentimental analysis on tweets in Amman area. We random
 In this part, we use two attributes of Twitter user - the number of followers this user has (followers_count) and the number of public lists this user is a member of (listed_count). We compute the correlation coefficient and the p-value of these two attributes. According to our computation results, the correlation coefficient equals to 0.86 and the p-value is close to 0. Therefore, we can conclude that the correlation between followers_count and listed_count is very strong.
 
 ## Project #3: Visualizations, Web Services, and Complete Project
-In Project #3, we focus on visualizations for results obtained in previous project. Our aim is to create an interactive web-based visualization that can be displayed in a standard web browser. We get the data from MongoDB and filter the data to three different groups and visualized them by folium. We built a web server that allows a user to explore the geo information of tweets that people posted from Amman. We also created different layers that allows people to view different attitude in different places.
+
+In Project #3, we focus on visualizations for results obtained in previous project. Our aim is to create an interactive web-based visualization that can be displayed in a standard web browser.
 
 ## Our Work in Project #3
 
+In Project #3, we get the data from MongoDB, filter the data to three different groups and visualize them Folium. We also build a web server that allows users to explore the geo information of tweets that people posted from Amman. We also create different layers that allows people to view different attitude in different places.
+
 ### 1. Visualization for Geo Information
 
-From Project #2, we get the clustering results which show some places that people usually visit. In Project #3, we map these coordinates into a real map using HeatMap from folium. We got all tweets with geo information and get the coordinates of places where people posted their tweets. The heat map can better represent the popularity of these places and we can know which places people prefer to go in Amman from the heat map.
+From Project #2, we get the clustering results which show some places that people usually visit. In Project #3, we map these coordinates into a real map using HeatMap from folium. The heat map could better represent the popularity of these places and we could know which places people prefer to go in Amman from the heat map.
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/heatmap.gif" width="640" height="318"/></div>
 
 ### 2. Visualization for Sentimental Analysis
 
-We also get sentimental analysis results in the previous project. In visualization, we use different makers to represent different sentiment. We use the Marker of folium, the marker includes the location of tweets, 'pop up' information and icon. The red marker with "thumbs-up" suggests that this tweet is positive; the blue marker with "thumbs-down" indicates that this tweet is negative; and the orange marker means that this tweet is neutral. The text of each tweet could be viewd by simply clicking the marker. 
+We also get sentimental analysis results in the previous project. In visualization, we use different makers to represent different sentiment. We use the Marker of folium, which includes the location of tweets, 'pop up' information and icon. The red marker with "thumbs-up" suggests that this tweet is positive; the blue marker with "thumbs-down" indicates that this tweet is negative; and the orange marker means that this tweet is neutral. The text of each tweet could be viewd by simply clicking the marker. 
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentimental_analysis.gif" width="640" height="318"/></div>
 
 ### 3. Combination and Interaction
 
-We combine two visualizations into one HTML file in order to better show the relation between these results. We add different layers that viewers could choose which results they want to check. By achieving this, we use the feature group of the folium and add related data to each layer. There are four layers: positive, negative, neutral, heat map.
+We combine two visualizations into one HTML file in order to better show the relation between these results. We add different layers that viewers could choose which results they want to check. By achieving this, we use the feature group of the folium and add related data to each layer. There are four layers: positive, negative, neutral, heat map in our final visualization web page.
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/layer.gif" width="640" height="318"/></div>
 
 ## Future Work
-The project is based on a dataset of 29000+ tweets from near Amman area of a seven-day period. If we could continue to work on this project, we might use a premium Twitter account try to get more data of this area with more tweets and longer time peroid of tweets. We believe we can get more useful and precise information with this large dataset.
+The project is based on a dataset of 29000+ tweets from near Amman area of a seven-day period. If we could continue to work on this project, we might use a premium Twitter account to get more data from this area with more tweets and longer time peroid. We believe we can get more useful and precise information with the larger dataset.
 
 ## Reference
  - https://developer.twitter.com/en/docs.html
