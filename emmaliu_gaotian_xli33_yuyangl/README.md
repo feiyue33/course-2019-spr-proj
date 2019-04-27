@@ -116,17 +116,23 @@ In Project #3, we focus on visualizations for results obtained in previous proje
 
 ## Our Work in Project #3
 
-### 1. Visualization for Clustering
+### 1. Visualization for Geo Information
 
-<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/heatmap.gif" width="640" height="318"/></div>
+From Project #2, we get the clustering results which show some places that people usually visit. In Project #3, we map these coordinates into a real map. We use a heatmap to better represent the popularization of these places.
+
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/heatmap.gif" width="480" height="360"/></div>
 
 ### 2. Visualization for Sentimental Analysis
 
-<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentimental_analysis.gif" width="640" height="318"/></div>
+We also get sentimental analysis results in the previous project. In visualization, we use different symbols to represent different sentiment. The red symbol with "thumbs-up" suggests that this tweet is positive; the blue symbol with "thumbs-down" indicates that this tweet is negative; and the orange symbol means that this tweet is neutral. The content of each tweet could be viewd by simply clicking the symbol.
+
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentimental_analysis.gif" width="480" height="360"/></div>
 
 ### 3. Combination and Interaction
 
-<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/layer.gif" width="640" height="318"/></div>
+We combine two visualizations into one HTML file in order to better show the relation between these results. We add different layers that viewers could choose which results they want to check.
+
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/layer.gif" width="480" height="360"/></div>
 
 ## Reference
  - https://developer.twitter.com/en/docs.html
@@ -135,3 +141,4 @@ In Project #3, we focus on visualizations for results obtained in previous proje
  - https://en.wikipedia.org/wiki/K-means%2B%2B
  - https://cloud.google.com/translate/docs/apis
  - https://github.com/cjhutto/vaderSentiment
+ - https://python-visualization.github.io/folium/
