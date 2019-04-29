@@ -120,7 +120,7 @@ In Project #3, we focus on visualizations for results obtained in previous proje
 
 ## Our Work in Project #3
 
-In Project #3, we get the data from MongoDB, filter the data to three different groups and visualize them Folium. We also build a web server that allows users to explore the geo information of tweets that people posted from Amman. We also create different layers that allows people to view different attitude in different places.
+In Project #3, we get the data from MongoDB, filter the data to three different groups and visualize them using Folium. We also build a web server that allows users to explore the geo information of tweets that people posted from Amman. We also create different layers that allows people to view different attitude in different places.
 
 ### 1. Visualization for Geo Information
 
