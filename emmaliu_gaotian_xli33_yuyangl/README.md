@@ -141,7 +141,7 @@ We combine two visualizations into one HTML file in order to better show the rel
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/layer.gif" width="640" height="318"/></div>
 
 ## Future Work
-The project is based on a dataset of 29000+ tweets from near Amman area of a seven-day period. If we could continue to work on this project, we might use a premium Twitter account to get more data from this area with more tweets and longer time peroid. We believe we can get more useful and precise information with the larger dataset.
+The project is based on a dataset of 29000+ tweets from near Amman area of a seven-day period. If we could continue to work on this project, we might use a premium Twitter account to get more data from this area with more tweets and longer time period. We believe we can get more useful and precise information with the larger dataset.
 
 ## Reference
  - https://developer.twitter.com/en/docs.html
