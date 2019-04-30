@@ -124,7 +124,7 @@ In Project #3, we get the data from MongoDB, filter the data to three different 
 
 ### 1. Visualization for Geo Information
 
-From Project #2, we get the clustering results which show some places that people usually visit. In Project #3, we map these coordinates into a real map using HeatMap from folium. The heat map could better represent the popularity of these places and we could know which places people prefer to go in Amman from the heat map.
+From Project #2, we get the clustering results which show some places that people usually visit. In Project #3, we map these coordinates into [OpenStreetMap(OSM)](https://www.openstreetmap.org/#map=5/38.007/-95.844) using HeatMap from folium. The heat map could better represent the popularity of these places and we could know which places people prefer to go in Amman from the heat map.
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/heatmap.gif" width="640" height="318"/></div>
 
