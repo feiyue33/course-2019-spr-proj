@@ -1,10 +1,12 @@
 # CS504 Project - Mapping Amman
 
+***This project is a part of [BU Spark!](http://www.bu.edu/spark/) project “Mapping Amman”.***
+
+***Note:***
+
 ***README.md file is our final report.***
 
 ***The [poster](https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/mapping_amman_poster.pdf) is in current folder.***
-
-***This project is a part of [BU Spark!](http://www.bu.edu/spark/) project “Mapping Amman”.***
 
 ## Introduction
 Prof.Anderson of BU history department is conducting an ethnography of present-day Amman, Jordan, to determine how 22-35 year olds with university degrees, who are living in representative neighborhoods around the city are navigating the neoliberal development projects financed by the state.  In just the last two decades, Amman has doubled in size, and schooling, jobs and entertainment have been privatized. The youth population is the first generation to be fully immersed in this new city, facing its new obstacles and opportunities. 
