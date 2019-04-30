@@ -1,6 +1,6 @@
 # CS504 Project - Mapping Amman
 
-***README.md file has updated for Project #3. Please jump to Project #3 Part for more details.***
+***README.md file is our final report.***
 
 ***This project is a part of [BU Spark!](http://www.bu.edu/spark/) project “Mapping Amman”.***
 
@@ -120,17 +120,17 @@ In Project #3, we focus on visualizations for results obtained in previous proje
 
 ## Our Work in Project #3
 
-In Project #3, we get the data from MongoDB, filter the data to three different groups and visualize them using Folium. We also build a web server that allows users to explore the geo information of tweets that people posted from Amman. We also create different layers that allows people to view different attitude in different places.
+In Project #3, we use Python to get the data from MongoDB, filter the data to three different groups and visualize them using Folium. We build an interactive web page that allows users to explore the geo information and sentimental analysis result obtained in previous project.
 
 ### 1. Visualization for Geo Information
 
-From Project #2, we get the clustering results which show some places that people usually visit. In Project #3, we map these coordinates into [OpenStreetMap(OSM)](https://www.openstreetmap.org/#map=5/38.007/-95.844) using HeatMap from folium. The heat map could better represent the popularity of these places and we could know which places people prefer to go in Amman from the heat map.
+From Project #2, we get the clustering result which show some places that people usually visit. In Project #3, we map these coordinates into [OpenStreetMap(OSM)](https://www.openstreetmap.org/#map=5/38.007/-95.844) using HeatMap from folium. The heat map could better represent the popularity of these places and we could know which places people prefer to go in Amman from the heat map.
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/heatmap.gif" width="640" height="318"/></div>
 
 ### 2. Visualization for Sentimental Analysis
 
-We also get sentimental analysis results in the previous project. In visualization, we use different makers to represent different sentiment. We use the Marker of folium, which includes the location of tweets, 'pop up' information and icon. The red marker with "thumbs-up" suggests that this tweet is positive; the blue marker with "thumbs-down" indicates that this tweet is negative; and the orange marker means that this tweet is neutral. The text of each tweet could be viewd by simply clicking the marker. 
+We also get sentimental analysis result in the previous project. In visualization, we use different makers to represent different sentiment. We use the Marker of folium, which includes the location of tweets, 'pop up' information and icon. The red marker with "thumbs-up" suggests that this tweet is positive; the blue marker with "thumbs-down" indicates that this tweet is negative; and the orange marker means that this tweet is neutral. The text of each tweet could be viewd by simply clicking the marker. 
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentimental_analysis.gif" width="640" height="318"/></div>
 
