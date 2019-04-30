@@ -2,7 +2,7 @@
 
 ***README.md file is our final report.***
 
-***The poster is in current folder.***
+***The [poster](https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/mapping_amman_poster.pdf) is in current folder.***
 
 ***This project is a part of [BU Spark!](http://www.bu.edu/spark/) project “Mapping Amman”.***
 
