@@ -2,6 +2,8 @@
 
 ***README.md file is our final report.***
 
+***The poster is in current folder.***
+
 ***This project is a part of [BU Spark!](http://www.bu.edu/spark/) project “Mapping Amman”.***
 
 ## Introduction
