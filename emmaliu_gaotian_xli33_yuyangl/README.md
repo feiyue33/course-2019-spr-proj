@@ -153,7 +153,7 @@ We combine two visualizations into one HTML file in order to better show the rel
 
 In the poster session, we discuss our final result with Prof. Anderson. From the heat map, we could find that people who live in West Amman go outside more often than people who live in East Amman. This is identical with the economic condition of Amman since people in West Amman is wealthier than East Amman. Also, we could see that a new shopping mall in West Amman is the place that people often visit.
 
-<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/final_result.png"></div>
+<div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/final_result.png" width=“738" height="400"></div>
 
 
 ## Future Work
