@@ -94,11 +94,13 @@ According to course syllabus, we focus on problems about data analytics in Proje
 ## Our Work in Project #2
 
 ### 1. Filtering Geo Information
+
 In order to do clustering on the place infomation, first we need to find which tweets include the place information. According to our observation, there are two information that might be useful. The first one is the "place" with a bounding box which provides coordinates. For each bounding box, we calculate the center point to represent it. The second one is the "geo" which directly provides coordinates. According our observation, there are too many overlapping center points calculated from bounding boxes, so this attribute do not provide enough useful information. Therefore, we filter tweets with "geo".
 
 ***Note: We do not merge code that using "bounding box" into our master branch. That part of code and result are in LinkedIn branch.***
  
 ### 2. Clustering by k-means++ Algorithm
+
 In Project #1, we get 5,000 tweets but the number of tweets with "geo" is not enough. To obtain more geo information for clustering, we get all tweets in last 7 days in Amman area. There are about 29,000 tweets in total and about 160 tweets include "geo". We want to use these coordinates to do clustering and find if there are some places that people usually go by solving this optimization problem. The most classic clustering algorithm is k-means. In Project #2, we implement k-means++ algorithm, which is better in initializing cluster centers. When k is set to 3, we get the result as follows.
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/kmeans_result.jpeg" width="480" height=360"/></div>
@@ -106,16 +108,19 @@ In Project #1, we get 5,000 tweets but the number of tweets with "geo" is not en
 ***Note: If you run the code in trial mode, only about 20 coordinates will be used in clustering.***
  
 ### 3. Text Translation
+
 Since many tweets in data set are in Arabic, we need to translate Arabic to English because it is much more convenient and efficient to do sentimental analysis on English. We use [Google Cloud Translation API](https://cloud.google.com/translate/docs/apis) to do translation. For 5,000 tweets, it takes about more than 1 hour to translate. We upload the new translated data set to http://datamechanics.io/data/tweets_translated.json.
  
 ***Note: The trial mode does not include text translation. Please run the code in trial mode if you do not want to do translation.***
  
 ### 4. Sentimental Analysis
+
 After translation, we do sentimental analysis on tweets in Amman area. We randomly sample 200 tweets from translated data set. Each tweet will get a score from range [-1, 1]. The more the score close to -1, the more negative the tweet is; the more the score close to 1, the more positive the tweet is. We draw a scatter plot to show the results more intuitively.
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/sentiment_result.jpeg" width="480" height="360"/></div>
 
 ### 5. Computation of Correlation Coefficient
+
 In this part, we use two attributes of Twitter user - the number of followers this user has (followers_count) and the number of public lists this user is a member of (listed_count). We compute the correlation coefficient and the p-value of these two attributes. According to our computation results, the correlation coefficient equals to 0.86 and the p-value is close to 0. Therefore, we can conclude that the correlation between followers_count and listed_count is very strong.
 
 ## Project #3: Visualizations, Web Services, and Complete Project
@@ -144,10 +149,17 @@ We combine two visualizations into one HTML file in order to better show the rel
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/layer.gif" width="640" height="318"/></div>
 
+## Conclusion
+
+In the poster session, we discuss our final result with Prof. Anderson. From the heat map, we could find that people who live in West Amman go outside more often than pople who live in East Amman. This is identical with the economic condition of Amman since people in West Amman is wealthier than East Amman. Also, we could see that a new shopping mall in West Amman is the place that people often visit.
+
+
 ## Future Work
+
 The project is based on a dataset of 29000+ tweets from near Amman area of a seven-day period. If we could continue to work on this project, we might use a premium Twitter account to get more data from this area with more tweets and longer time period. We believe we can get more useful and precise information with the larger dataset.
 
 ## Reference
+
  - https://developer.twitter.com/en/docs.html
  - https://www.json.org/
  - http://cs-people.bu.edu/lapets/504/
