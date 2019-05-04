@@ -14,15 +14,15 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import tempfile
 import subprocess
 
-# Google Cloud
-# To get the credential:
-# 1. Create or select a project.
-# 2. Enable the Cloud Translation API for that project.
-# 3. Create a service account.
-# 4. Download a private key as JSON.
-credential_path = "../auth.json"
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
-translate_client = translate.Client()
+# # Google Cloud
+# # To get the credential:
+# # 1. Create or select a project.
+# # 2. Enable the Cloud Translation API for that project.
+# # 3. Create a service account.
+# # 4. Download a private key as JSON.
+# credential_path = "../auth.json"
+# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
+# translate_client = translate.Client()
 analyzer = SentimentIntensityAnalyzer()
 
 PORT = 5002
@@ -125,63 +125,79 @@ class visualization(dml.Algorithm):
         repo = client.repo
         repo.authenticate('emmaliu_gaotian_xli33_yuyangl', 'emmaliu_gaotian_xli33_yuyangl')
 
-        # Get Tweets data
-        tweetsData = repo.emmaliu_gaotian_xli33_yuyangl.tweets.find()
+        # In order to run the code quickly, we should use trial mode
+        if trial:
+            with open('emmaliu_gaotian_xli33_yuyangl/sentiment_map.html') as f:
+                folium_map_html = f.read()
+            run_html_server(folium_map_html)
+        else:
+            # Google Cloud
+            # To get the credential:
+            # 1. Create or select a project.
+            # 2. Enable the Cloud Translation API for that project.
+            # 3. Create a service account.
+            # 4. Download a private key as JSON.
+            credential_path = "../auth.json"
+            os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
+            translate_client = translate.Client()
 
-        # create heatmap
-        heat_map = folium.Map(location=[31.947, 35.925])
-        # create sentiment map
-        sentiment_map = folium.Map(location=[31.947, 35.925])
+            # Get Tweets data
+            tweetsData = repo.emmaliu_gaotian_xli33_yuyangl.tweets.find()
 
-        positiveFG = folium.FeatureGroup(name='Positive')
-        negativeFG= folium.FeatureGroup(name='Negative')
-        neutralFG = folium.FeatureGroup(name='Neutral')
-        heatmapFG = folium.FeatureGroup(name='Heat Map')
-        coordinates = []
-        count = 0
-        for item in tweetsData:
-            if item['geo']:
-                coordinates.append((item['geo']['coordinates'][0], item['geo']['coordinates'][1]))
-                translated_text = translate_client.translate(remove_emoji(item['text']), target_language='en')['translatedText']
-                vs = analyzer.polarity_scores(translated_text)
-                # print("{:-<65} {}".format(sentence, str(vs)))
-                if vs['compound'] < 0:
-                    color = 'blue'
-                    icon = 'thumbs-down'
-                    featureGroup = negativeFG
-                elif vs['compound'] > 0:
-                    color = 'red'
-                    icon = 'thumbs-up'
-                    featureGroup = positiveFG
-                else:
-                    color = 'orange'
-                    icon = ''
-                    featureGroup = neutralFG
-                folium.Marker(
-                    location=[item['geo']['coordinates'][0], item['geo']['coordinates'][1]],
-                    popup=item['text'],
-                    icon=folium.Icon(color=color, icon=icon)
-                ).add_to(featureGroup)
-                count += 1
-                print(count)
-                time.sleep(.6)
+            # create heatmap
+            heat_map = folium.Map(location=[31.947, 35.925])
+            # create sentiment map
+            sentiment_map = folium.Map(location=[31.947, 35.925])
 
-        HeatMap(coordinates).add_to(heatmapFG)
-        # heat_map.save('heat_map.html')
+            positiveFG = folium.FeatureGroup(name='Positive')
+            negativeFG= folium.FeatureGroup(name='Negative')
+            neutralFG = folium.FeatureGroup(name='Neutral')
+            heatmapFG = folium.FeatureGroup(name='Heat Map')
+            coordinates = []
+            count = 0
+            for item in tweetsData:
+                if item['geo']:
+                    coordinates.append((item['geo']['coordinates'][0], item['geo']['coordinates'][1]))
+                    translated_text = translate_client.translate(remove_emoji(item['text']), target_language='en')['translatedText']
+                    vs = analyzer.polarity_scores(translated_text)
+                    # print("{:-<65} {}".format(sentence, str(vs)))
+                    if vs['compound'] < 0:
+                        color = 'blue'
+                        icon = 'thumbs-down'
+                        featureGroup = negativeFG
+                    elif vs['compound'] > 0:
+                        color = 'red'
+                        icon = 'thumbs-up'
+                        featureGroup = positiveFG
+                    else:
+                        color = 'orange'
+                        icon = ''
+                        featureGroup = neutralFG
+                    folium.Marker(
+                        location=[item['geo']['coordinates'][0], item['geo']['coordinates'][1]],
+                        popup=item['text'],
+                        icon=folium.Icon(color=color, icon=icon)
+                    ).add_to(featureGroup)
+                    count += 1
+                    print(count)
+                    time.sleep(.6)
 
-        positiveFG.add_to(sentiment_map)
-        negativeFG.add_to(sentiment_map)
-        neutralFG.add_to(sentiment_map)
-        heatmapFG.add_to(sentiment_map)
-        folium.LayerControl().add_to(sentiment_map)
-        sentiment_map.save('sentiment_map.html')
+            HeatMap(coordinates).add_to(heatmapFG)
+            # heat_map.save('heat_map.html')
 
-        tmp = tempfile.NamedTemporaryFile()
-        sentiment_map.save(tmp.name)
-        with open('sentiment_map.html') as f:
-            folium_map_html = f.read()
+            positiveFG.add_to(sentiment_map)
+            negativeFG.add_to(sentiment_map)
+            neutralFG.add_to(sentiment_map)
+            heatmapFG.add_to(sentiment_map)
+            folium.LayerControl().add_to(sentiment_map)
+            sentiment_map.save('sentiment_map.html')
 
-        run_html_server(folium_map_html)
+            tmp = tempfile.NamedTemporaryFile()
+            sentiment_map.save(tmp.name)
+            with open('sentiment_map.html') as f:
+                folium_map_html = f.read()
+
+            run_html_server(folium_map_html)
 
         repo.logout()
 
@@ -224,7 +240,7 @@ class visualization(dml.Algorithm):
         return doc
 
 
-# visualization.execute()
+# visualization.execute(trial=True)
 # doc = visualization.provenance()
 # print(doc.get_provn())
 # print(json.dumps(json.loads(doc.serialize()), indent=4))
