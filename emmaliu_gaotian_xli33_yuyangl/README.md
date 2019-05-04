@@ -156,13 +156,13 @@ In the poster session, we discuss our final result with Prof. Anderson. From the
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/final_result.png" width=“738" height="400"></div>
 
 
-Since in Project #1 we set a larger radius, we also get tweets from Israel although it is not part of our aim. We could draw a conclusion that people in Israel is happier than people in Amman. Also, people in West Amman is happier than people in East Amman.
+Since in Project #1 we set a larger radius, we also get tweets from Israel although it is not part of our aim. We could draw a conclusion that people in Israel is happier than people in Amman. Also, people in West Amman is happier than people in East Amman, which is also identical with the economic condition.
 
 <div align=center><img src="https://github.com/feiyue33/course-2019-spr-proj/blob/master/emmaliu_gaotian_xli33_yuyangl/image/final_result_sentimental.png" width=“738" height="400"></div>
 
 ## Future Work
 
-The project is based on a dataset of 29000+ tweets from near Amman area of a seven-day period. If we could continue to work on this project, we might use a premium Twitter account to get more data from this area with more tweets and longer time period. We believe we can get more useful and precise information with the larger dataset.
+The project is based on a dataset of 29,000+ tweets from near Amman area of a seven-day period. If we could continue to work on this project, we might use a premium Twitter account to get more data from this area with more tweets and longer time period. We believe we can get more useful and precise information with the larger dataset.
 
 ## Reference
 
